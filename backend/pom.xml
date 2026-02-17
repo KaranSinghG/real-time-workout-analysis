@@ -8,10 +8,10 @@
 		<version>3.5.10</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.fitmetrics.analystics</groupId>
-	<artifactId>analystics-service</artifactId>
+	<groupId>com.fitmetrics.analytics</groupId>
+	<artifactId>analytics-service</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>analystics-service</name>
+	<name>analytics-service</name>
 	<description>Demo project for Spring Boot</description>
 	<url/>
 	<licenses>
