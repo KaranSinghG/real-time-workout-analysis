@@ -1,4 +1,4 @@
-package com.fitmetrics.analytics.analystics_service;
+package com.fitmetrics.analytics;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

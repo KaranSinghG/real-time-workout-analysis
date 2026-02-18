@@ -1,4 +1,4 @@
-package com.fitmetrics.analytics.analystics_service;
+package com.fitmetrics.analytics;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
