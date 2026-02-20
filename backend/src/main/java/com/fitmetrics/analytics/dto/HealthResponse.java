@@ -6,6 +6,9 @@ public class HealthResponse {
     private String status;
     private LocalDateTime lastUpdated;
 
+    public HealthResponse() {
+    }
+
     public HealthResponse(String status, LocalDateTime lastUpdated) {
         this.status = status;
         this.lastUpdated = lastUpdated;
