@@ -12,7 +12,7 @@ public class Workout {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private int id;
     private String exercise;
     private int reps;
     private int duration; // in seconds
@@ -26,10 +26,10 @@ public class Workout {
         this.duration = duration;
     }
 
-    public Long getId() {
+    public int getId() {
         return id;
     }
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
 

@@ -6,7 +6,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.fitmetrics.analytics.dto.WorkoutRequest;
+import com.fitmetrics.analytics.dto.WorkoutResponse;
 import com.fitmetrics.analytics.service.WorkoutService;
+
+import jakarta.websocket.server.PathParam;
+
+import java.util.List;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
+
 
 @RestController
 @RequestMapping("/api/workouts")
@@ -23,4 +33,16 @@ public class WorkoutController {
         workoutService.saveWorkout(workoutRequest);
         return "Workout saved successfully";
     }
+
+    @GetMapping
+    public List<WorkoutResponse> getAllWorkouts() {
+        return workoutService.findAllWorkouts();
+    }
+
+    @GetMapping("/{id}")
+    public WorkoutResponse getWorkout(@PathVariable Long id) {
+        return workoutService.findWorkoutById(id);
+    }
+    
+    
 }
