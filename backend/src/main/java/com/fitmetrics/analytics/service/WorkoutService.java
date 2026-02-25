@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.fitmetrics.analytics.dto.WorkoutRequest;
 import com.fitmetrics.analytics.dto.WorkoutResponse;
 import com.fitmetrics.analytics.entity.Workout;
+import com.fitmetrics.analytics.exception.WorkoutNotFoundException;
 import com.fitmetrics.analytics.repository.WorkoutRepository;
 
 @Service
@@ -43,7 +44,7 @@ public class WorkoutService {
             throw new IllegalArgumentException("Workout id cannot be null");
         }
         Workout workout = workoutRepository.findById(id)
-            .orElseThrow(() -> new RuntimeException("Workout not found with id: " + id));
+            .orElseThrow(() -> new WorkoutNotFoundException("Workout not found with id: " + id));
         return new WorkoutResponse(
             workout.getId(),
             workout.getExercise(),
