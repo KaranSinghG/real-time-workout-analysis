@@ -13,9 +13,12 @@ import jakarta.websocket.server.PathParam;
 
 import java.util.List;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.PutMapping;
+
 
 
 @RestController
@@ -44,5 +47,10 @@ public class WorkoutController {
         return workoutService.findWorkoutById(id);
     }
     
+    @PutMapping("/{id}")
+    public ResponseEntity<WorkoutResponse> putMethodName(@PathVariable Long id, @RequestBody WorkoutRequest request) {
+        WorkoutResponse response = workoutService.updateWorkout(id, request);
+        return ResponseEntity.ok(response);
+    }
     
 }

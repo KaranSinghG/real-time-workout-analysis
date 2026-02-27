@@ -52,4 +52,22 @@ public class WorkoutService {
             workout.getDuration()
         );
     }
+
+    public WorkoutResponse updateWorkout(Long id, WorkoutRequest request) {
+        Workout workout = workoutRepository.findById(id)
+            .orElseThrow(() -> new WorkoutNotFoundException("Workout not found with id: " + id));
+        
+        workout.setExercise(request.getExercise());
+        workout.setReps(request.getReps());
+        workout.setDuration(request.getDuration());
+        
+        Workout updatedWorkout = workoutRepository.save(workout);
+        
+        return new WorkoutResponse(
+            updatedWorkout.getId(),
+            updatedWorkout.getExercise(),
+            updatedWorkout.getReps(),
+            updatedWorkout.getDuration()
+        );
+    }
 }
