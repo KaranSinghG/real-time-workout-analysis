@@ -70,4 +70,17 @@ public class WorkoutService {
             updatedWorkout.getDuration()
         );
     }
+
+    public void deleteWorkout(Long id) {
+        if (id == null) {
+            throw new IllegalArgumentException("Workout id cannot be null");
+        }
+        Workout workout = workoutRepository
+                .findById(id)
+                .orElseThrow(() ->
+                        new WorkoutNotFoundException(
+                                "Workout not found with id: " + id));
+
+        workoutRepository.delete(workout);
+    }
 }
