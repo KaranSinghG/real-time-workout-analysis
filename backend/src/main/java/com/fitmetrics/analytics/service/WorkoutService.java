@@ -31,7 +31,7 @@ public class WorkoutService {
     public List<WorkoutResponse> findAllWorkouts(){
         return workoutRepository.findAll().stream()
             .map(workout -> new WorkoutResponse(
-                workout.getId(),
+                workout.getId().intValue(),
                 workout.getExercise(),
                 workout.getReps(),
                 workout.getDuration()
@@ -46,7 +46,7 @@ public class WorkoutService {
         Workout workout = workoutRepository.findById(id)
             .orElseThrow(() -> new WorkoutNotFoundException("Workout not found with id: " + id));
         return new WorkoutResponse(
-            workout.getId(),
+            workout.getId().intValue(),
             workout.getExercise(),
             workout.getReps(),
             workout.getDuration()
@@ -64,7 +64,7 @@ public class WorkoutService {
         Workout updatedWorkout = workoutRepository.save(workout);
         
         return new WorkoutResponse(
-            updatedWorkout.getId(),
+            updatedWorkout.getId().intValue(),
             updatedWorkout.getExercise(),
             updatedWorkout.getReps(),
             updatedWorkout.getDuration()
