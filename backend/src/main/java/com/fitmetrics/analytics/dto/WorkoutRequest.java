@@ -1,8 +1,14 @@
 package com.fitmetrics.analytics.dto;
 
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Positive;
+
 public class WorkoutRequest {
-    
+    @NotBlank(message = "Exercise name cannot be blank")
     private String exercise;
+    @NotNull(message = "Reps cannot be null")
+    @Positive(message = "Reps must be a positive integer")
     private int reps;
     private int duration; // in seconds
 

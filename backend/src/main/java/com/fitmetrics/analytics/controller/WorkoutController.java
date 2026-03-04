@@ -9,6 +9,7 @@ import com.fitmetrics.analytics.dto.WorkoutRequest;
 import com.fitmetrics.analytics.dto.WorkoutResponse;
 import com.fitmetrics.analytics.service.WorkoutService;
 
+import jakarta.validation.Valid;
 import jakarta.websocket.server.PathParam;
 
 import java.util.List;
@@ -32,9 +33,9 @@ public class WorkoutController {
     }
 
     @PostMapping
-    public String saveWorkout(@RequestBody WorkoutRequest workoutRequest) {
+    public ResponseEntity<String> saveWorkout(@Valid @RequestBody WorkoutRequest workoutRequest) {
         workoutService.saveWorkout(workoutRequest);
-        return "Workout saved successfully";
+        return ResponseEntity.status(201).body("Workout saved successfully");
     }
 
     @GetMapping
