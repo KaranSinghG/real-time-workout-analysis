@@ -54,6 +54,9 @@ public class WorkoutService {
     }
 
     public WorkoutResponse updateWorkout(Long id, WorkoutRequest request) {
+        if (id == null) {
+            throw new IllegalArgumentException("Workout id cannot be null");
+        }
         Workout workout = workoutRepository.findById(id)
             .orElseThrow(() -> new WorkoutNotFoundException("Workout not found with id: " + id));
         
@@ -80,7 +83,8 @@ public class WorkoutService {
                 .orElseThrow(() ->
                         new WorkoutNotFoundException(
                                 "Workout not found with id: " + id));
-
-        workoutRepository.delete(workout);
+        if (workout != null) {
+            workoutRepository.delete(workout);
+        }
     }
 }

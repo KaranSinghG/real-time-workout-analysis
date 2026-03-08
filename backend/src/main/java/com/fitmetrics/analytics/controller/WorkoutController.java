@@ -10,7 +10,6 @@ import com.fitmetrics.analytics.dto.WorkoutResponse;
 import com.fitmetrics.analytics.service.WorkoutService;
 
 import jakarta.validation.Valid;
-import jakarta.websocket.server.PathParam;
 
 import java.util.List;
 
